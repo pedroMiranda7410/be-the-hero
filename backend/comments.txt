@@ -1,0 +1,67 @@
+/*
+*   Rota / Recurso
+*/
+
+/*
+* Métodos HTTP:
+*
+* GET: Quando queremos buscar uma informação do Backend
+* POST 
+
+*/
+
+/**
+ * Método HTTP:
+ * 
+ * GET: Quando queremos buscar uma informação do backend
+ * POST: Quando queremos criar uma informação no backend
+ * PUT/PATCH: Quando queremos atualizar uma informação no backend
+ * DELETE: Quando queremos deletar uma informação
+ */
+
+ /**
+  * Tipos de Parâmetros:
+  * 
+  * Query Params: Parâmetros nomeados enviados na rota após "?" (Filtros, Paginação)
+  *     Ex: localhost:3333/users?name=Pedro&idade=22
+  * 
+  * Route Params: Parâmetros utilizados pra identificar recursos
+  *     Ex: localhost:3333/users/:id (Identificar recursos)
+  * 
+  * Request Body: utilizado para criar ou alterar recursos
+  */
+
+/**
+ * BANCO DE DADOS
+ * 
+ * SQL: MySQL, SQLite, PostgreSQL, Oracle, Microsoft SQL Server
+ * NoSQL: MongoDB, CounchDB, etc
+ * 
+ */
+
+/**
+ * Driver: SElECT * FROM users
+ * Query Builder: table('users').select('*').where()
+ */
+
+
+ routes.get('/', (request, response) => {
+    const params = request.query; // identifica query params
+    
+    console.log(params);
+
+    return response.json({
+        evento: "Semana Omnisctack",
+        user: "Pedro Miranda",
+        aula: 1
+    });
+});
+
+routes.get('/users/:id', (request,response)=>{
+    const id = request.params; //identifica recurso (EX: localhost/users/id)
+
+    return response.json({
+        id,
+        name: "Pedro"
+    });
+});
