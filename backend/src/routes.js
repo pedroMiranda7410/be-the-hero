@@ -10,7 +10,6 @@ routes.post('/sessions', SessionController.create);
 
 //ONGS
 routes.get('/profile', ProfileController.index);
-
 routes.get('/ongs', OngController.index);
 routes.post('/ongs', OngController.create);
 
